@@ -3,18 +3,22 @@
 # F.A.Q.
 
 **What is this thing?**
+
 This is a small remote selector that can be adapted and used on DIP-switch based arcade multi-systems. 
 Once the device is configured and installed, rather than selecting your game by setting dip switches, users can push the "Up" (D0) and "Down" (D2) buttons to navigate visually through the game list, then push "Select" (D1) to select the game. The selector will then hold the arcade board in reset and electrically configure the dip switches before releasing reset allowing the selected game to boot.
 
 **What is a DIP-switch based arcade multi-system?**
+
 It's pretty niche, but some arcade games share the same electronics and only really have differing software. Arcade Enthusiests have designed and built "multi-systems" that allow switching out the software so that rather than having a whole separate set of electronics for each game, one set of electronics can play multiple games. The simpliest of these multi-systems will often use Dip-switches to set the game, which is cheap and effective but can be quite clumsy and unintuitive to use.
 
 **Why was this made?**
+
 Selecting your game using dip-switches can be frustrating, annoying, and very much non-intuitive. You typically need to have a little chart near by that tells you how to set the dip switches for the game you want to play, and if you want to switch games you have to power everything down to change it. Doing this while your arcade PCB is inside of an arcade cabinet means you sometimes have to be a contortionist with night-vision and the dexterity of a bomb-diffusal expert just to change that game you're playing. A selector like this one, that is easy to use and understand, solves most of those problems. 
 
 This is being made open source in the hopes that future multi-systems that get developed by anyone in the community can easily incorporate support for this benefiting both the functionality of their multi and the users in the community. 
 
 **What features/functinoality does this have?**
+
 You get a full-color TFT display to show the game logos, you get 3 buttons: up, down, and select, so you can scroll through the game list and select the game you'd like to play. Selecting the game displays a loading screen while it resets the PCB and virtually configures the dip switches for game you selected. If an image isn't found it it will display the title of the game as text on the screen, and can seemilessly scroll between text and image based entries. It uses a standard 10-pin IDC ribon cable connection to the multi so you can remote mount the selector outside the cab by simply buying a cable long enough for your setup.
 
 Through the menu configuration file you can control:
@@ -34,11 +38,13 @@ future features:
 * Selection over WiFi from your phone or other devie. the selector has Wifi Support so this is possible, the software just needs to be built.
 
 **How Difficult is this to setup and use?**
+
 If you're designing and building a multi kit this will add exactly $0 to your production costs. For the bare minimum support you simply need to add a 10-pin header footprint to your PCB for the selector and a 1-pin header footprint for a reset wire. This adds no cost to production and maybe an hour (not even) of your time to add the header to your schematic and PCB layout. I've even provided pre-configured footprints to allow mounting of the selector directly to your PCB if you have the room for it. If you want stronger support still you can spend a few extra cents per PCB and solder in the headers to each of the footprints you added to make use of the LCD selector completely plug and play for your users.
 
 If you're a user of multis the difficulty varies depending on the multi-kit, setting up the kit at most would require soldering of some simple through-hole parts. The selector itself uses an off-the-shelf display and MCU unit from Adafruit coupled with a custom designed interface PCB that is open source and you can send the design files out and have made completely, or find someone selling them. Installing the software is as simple as copying files over to a USB thumb drive.
 
 **Can this be used on multi-kits that weren't designed for it?**
+
 Potentially, from an electrical standpoint this can be used with any multikit design to select games by up to 7 dip-switches (or jumpers). The challenge is wiring it up in a way that doesn't look like a science-experiment, which will vary greatly depending on the multi. The software is fully customizable, in addition to the "menu" config file there is a separate "multi" config file that allows you to specify the parameters of the multi for the software to tailor itself for it's use without any code changes.
 
 # Putting Together a Selector as a Multi-Kit User
