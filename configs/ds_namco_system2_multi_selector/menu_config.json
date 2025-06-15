@@ -1,0 +1,113 @@
+{
+  "multi_name":"Darksoft System-2 Multi",
+  "default_game":"assault",
+  "retain_selection":true,
+  "idle_timeout":10,
+  "debounce_delay":0.2,
+  "loading_image":"/images/loading.bmp",
+  "text_color":"0xFFFFFF",
+  "left_margin":10,
+  "top_margin":60,
+
+  "game_order": [
+    "assault",
+    "assaultp",
+    "burnforc",
+    "cosmogng",
+    "dirtfoxj",
+    "dsaber",
+    "dsaberj",
+    "finehour",
+    "marvland",
+    "marvlandup",
+    "mirninja",
+    "ordyne",
+    "phelios",
+    "rthun2",
+    "rthun2j",
+    "valkyrie"
+  ],
+
+  "gamedefs": {
+    "assault": {
+      "title":"Assault",
+      "image":"/images/assault.bmp",
+      "dip_val":"0"
+    },
+    "assaultp": {
+      "title":"Assault Plus",
+      "image":"/images/assaultp.bmp",
+      "dip_val":"1"
+    },
+    "burnforc": {
+      "title":"Burning Force",
+      "image":"/images/burnforc.bmp",
+      "dip_val":"2"
+    },
+    "cosmogng": {
+      "title":"Cosmo Gang: The Video",
+      "image":"/images/cosmogng.bmp",
+      "dip_val":"3"
+    },
+    "dirtfoxj": {
+      "title":"Dirt Fox",
+      "image":"/images/dirtfoxj.bmp",
+      "dip_val":"4"
+    },
+    "dsaber": {
+      "title":"Dragon Sabre (World)",
+      "image":"/images/dsaber.bmp",
+      "dip_val":"5"
+    },
+    "dsaberj": {
+      "title":"Dragon Sabre (Japan)",
+      "image":"/images/dsaberj.bmp",
+      "dip_val":"6"
+    },
+    "finehour": {
+      "title":"Finest Hour",
+      "image":"/images/finehour.bmp",
+      "dip_val":"7"
+    },
+    "marvland": {
+      "title":"Marvel Land",
+      "image":"/images/marvland.bmp",
+      "dip_val":"8"
+    },
+    "marvlandup": {
+      "title":"Marvel Land (prototype)",
+      "image":"/images/marvlandup.bmp",
+      "dip_val":"9"
+    },
+    "mirninja": {
+      "title":"Miri Ninja",
+      "image":"/images/mirninja.bmp",
+      "dip_val":"A"
+    },
+    "ordyne": {
+      "title":"Ordyne",
+      "image":"/images/ordyne.bmp",
+      "dip_val":"B"
+    },
+    "phelios": {
+      "title":"Phelios",
+      "image":"/images/phelios.bmp",
+      "dip_val":"C"
+    },
+    "rthun2": {
+      "title":"Rolling Thunder 2 (World)",
+      "image":"/images/rthun2.bmp",
+      "dip_val":"D"
+    },
+    "rthun2j": {
+      "title":"Rolling Thunder 2 (Japan)",
+      "image":"/images/rthun2j.bmp",
+      "dip_val":"E"
+    },
+    "valkyrie": {
+      "title":"Valkyrie No Densetsu",
+      "image":"/images/valkyrie.bmp",
+      "dip_val":"F"
+    }
+  }
+}

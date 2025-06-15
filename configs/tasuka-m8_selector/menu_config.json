@@ -1,0 +1,65 @@
+{
+  "multi_name":"TASUKA-M8",
+  "default_game":"asuka",
+  "retain_selection":true,
+  "idle_timeout":10,
+  "debounce_delay":0.2,
+  "loading_image":"/images/loading.bmp",
+  "text_color":"0xFFFFFF",
+  "left_margin":10,
+  "top_margin":60,
+
+  "game_order": [
+    "asuka",
+    "earthjkr",
+    "galmedes",
+    "eto",
+    "asukaj",
+    "earthjkrp",
+    "mofflott",
+    'cadash"
+  ],
+
+  "gamedefs": {
+    "asuka": {
+      "title":"Asuka & Asuka (World)",
+      "image":"/images/asuka.bmp",
+      "dip_val":"0"
+    },
+    "earthjkr": {
+      "title":"U.N. Defense Force: Earth Joker",
+      "image":"/images/earthjkr.bmp",
+      "dip_val":"1"
+    },
+    "galmedes": {
+      "title":"Galmedes",
+      "image":"/images/galmedes.bmp",
+      "dip_val":"2"
+    },
+    "eto": {
+      "title":"Kokontouzai Eto Monogatari",
+      "image":"/images/eto.bmp",
+      "dip_val":"3"
+    },
+    "asukaj": {
+      "title":"Asuka & Asuka (Japan)",
+      "image":"/images/asukaj.bmp",
+      "dip_val":"4"
+    },
+    "earthjkrp": {
+      "title":"U.N. Defense Force: Earth Joker (Prototype)",
+      "image":"/images/earthjkrp.bmp",
+      "dip_val":"5"
+    },
+    "mofflott": {
+      "title":"Maze of Flott",
+      "image":"/images/mofflott.bmp",
+      "dip_val":"6"
+    },
+    "cadash": {
+      "title":"Cadash",
+      "image":"/images/cadash.bmp",
+      "dip_val":"7"
+    }
+  }
+}

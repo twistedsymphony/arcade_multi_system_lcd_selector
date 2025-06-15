@@ -1,0 +1,7 @@
+{
+  "multi_name":"MVG420-M8",
+  "dip_bits":3,
+  "dip_on":"1",
+  "reset_time":1,
+  "reset_open_drain":0
+}

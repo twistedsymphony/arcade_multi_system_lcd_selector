@@ -1,0 +1,53 @@
+{
+  "multi_name":"JMS1CX-M8",
+  "default_game":"cybattlr",
+  "retain_selection":true,
+  "idle_timeout":10,
+  "debounce_delay":0.2,
+  "loading_image":"/images/loading.bmp",
+  "text_color":"0xFFFFFF",
+  "left_margin":10,
+  "top_margin":60,
+
+  "game_order": [
+    "cybattlr",
+    "chimerab",
+    "edf",
+    "64street",
+    "avspirit",
+    "bigstrik"
+  ],
+
+  "gamedefs": {
+    "cybattlr": {
+      "title":"Cybattler",
+      "image":"/images/cybattlr.bmp",
+      "dip_val":"0"
+    },
+    "chimerab": {
+      "title":"Chimera Beast",
+      "image":"/images/chimerab.bmp",
+      "dip_val":"4"
+    },
+    "64street": {
+      "title":"64th. Street: A Detective Story",
+      "image":"/images/64street.bmp",
+      "dip_val":"2"
+    },
+    "bigstrik": {
+      "title":"Big Striker",
+      "image":"/images/bigstrik.bmp",
+      "dip_val":"6"
+    },
+    "edf": {
+      "title":"E.D.F.: Earth Defense Force",
+      "image":"/images/edf.bmp",
+      "dip_val":"1"
+    },
+    "avspirit": {
+      "title":"Avenging Spirit",
+      "image":"/images/avspirit.bmp",
+      "dip_val":"7"
+    }
+  }
+}

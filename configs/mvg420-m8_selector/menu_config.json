@@ -1,0 +1,65 @@
+{
+  "multi_name":"MVG420-M8",
+  "default_game":"skyalert",
+  "retain_selection":true,
+  "idle_timeout":10,
+  "debounce_delay":0.2,
+  "loading_image":"/images/loading.bmp",
+  "text_color":"0xFFFFFF",
+  "left_margin":10,
+  "top_margin":60,
+
+  "game_order": [
+    "karatour",
+    "skyalert",
+    "ladykill",
+    "poitto",
+    "pangpoms",
+    "lastfort",
+    "lastforte",
+    "lastfortk"
+  ],
+
+  "gamedefs": {
+    "pangpoms": {
+      "title":"PangPom's",
+      "image":"/images/pangpoms.bmp",
+      "dip_val":"0"
+    },
+    "lastfort": {
+      "title":"Last Fortress - Toride (JP)",
+      "image":"/images/lastfort.bmp",
+      "dip_val":"1"
+    },
+    "lastforte": {
+      "title":"Last Fortress - Toride (CN)",
+      "image":"/images/lastforte.bmp",
+      "dip_val":"2"
+    },
+    "lastfortk": {
+      "title":"Last Fortress - Toride (KO)",
+      "image":"/images/lastfortk.bmp",
+      "dip_val":"3"
+    },
+    "skyalert": {
+      "title":"Sky Alert",
+      "image":"/images/skyalert.bmp",
+      "dip_val":"4"
+    },
+    "poitto": {
+      "title":"Poitto",
+      "image":"/images/poitto.bmp",
+      "dip_val":"5"
+    },
+    "ladykill": {
+      "title":"Lady Killer",
+      "image":"/images/ladykill.bmp",
+      "dip_val":"6"
+    },
+    "karatour": {
+      "title":"Karate Tournament",
+      "image":"/images/karatour.bmp",
+      "dip_val":"7"
+    }
+  }
+}

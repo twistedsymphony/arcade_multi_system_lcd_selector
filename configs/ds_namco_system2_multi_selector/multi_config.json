@@ -1,0 +1,7 @@
+{
+  "multi_name":"Darksoft System-2 Multi",
+  "dip_bits":4,
+  "dip_on":"0",
+  "reset_time":1,
+  "reset_open_drain":false
+}
