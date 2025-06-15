@@ -72,13 +72,13 @@ Releases should include:
 4. you can now test out the menu to make sure it has the games you expect and see how it functions before connecting it to your multi. If you'd like to ajust settings in "menu_config.json" file you can do so to configure the menu to your liking and confirm those changes work while you still have it hooked up to your PC. it is NOT recommended to adjust the multi_config.json settings as these determine the electrical configurain for the multi.
 5. once you're done simply unplug the USB-C cable from the display and now the software on the selector is ready for the multi.
 
-**NOTE: Do not connect the USB-C on the Selector at the same time the 10-pin connector is attached to the Multi PCB ** Doing so risks damaging your USB host device. The interface PCB has some protections to help prevent voltage back-feed from the USB port to the Multi-PCB but there are no protections to stop voltage back feed from the multi-PCB to the USB port as such there is risk of damage to your USB Host device.
+**NOTE: Do not connect the USB-C on the Selector at the same time the 10-pin connector is attached to the Multi PCB** Doing so risks damaging your USB host device. The interface PCB has some protections to help prevent voltage back-feed from the USB port to the Multi-PCB but there are no protections to stop voltage back feed from the multi-PCB to the USB port as such there is risk of damage to your USB Host device.
 
 ## Installing a Selector onto your Multi
 1. Follow the steps above to build the selector hardware
 2. Follow the steps above to install the software on the selector
 3. Ensure that all Dips switches on your multi are set to "OFF" (0) and that any rotary selectors are set to position "0". Alternatively, you can completely remove any dips or rotary switches from your multi-PCB (if you set any of these switches to other positions it causes that dip to perminently register as "on" resuling in different selections being made other than the game you selected on the LCD selector)
-3. Plug the Adafruit ESP32-S2 Reverse TFT Feather into the CAERTF-MS Interface PCB, Make sure the USB-C port is disconnected (Do not connect the USB-C on the Selector at the same time the 10-pin connector is attached to the Multi PCB ** the interface PCB has some protections to help prevent voltage back-feed from the USB port to the Multi-PCB but there are no protections to stop voltage back feed from the multi-PCB to the USB port as such there is risk of damage to your USB Host device.)
+3. Plug the Adafruit ESP32-S2 Reverse TFT Feather into the CAERTF-MS Interface PCB, Make sure the USB-C port is disconnected (**Do not connect the USB-C on the Selector at the same time the 10-pin connector is attached to the Multi-PCB** the interface PCB has some protections to help prevent voltage back-feed from the USB port to the Multi-PCB but there are no protections to stop voltage back feed from the multi-PCB to the USB port as such there is risk of damage to your USB Host device.)
 4. Connect the 10-pin IDC cable between the selector and the appropriate header on your multi-PCB
 5. (optional) Install any mounts or brackets that may be avalable for your particular multi
 
@@ -88,7 +88,32 @@ Images for the selector should be 240x135 pixels and .bmp format. it's recommend
 While BMP files are larger the processing speed required to decode .jpg or .png compression on images takes about 1-2 seconds per image load which dramatically slows down menu navigation making the game selection experience feel extremely laggy. BMP was chosen as it is essentially uncompressed and is able to load instantly and at 8-bit indexed color is still small enough to support images for all games on nearly all dip-switch based multis.
 
 ## reconfiguring the menu_config.json file
-(Details Coming Soon)
+The Configuration files on this multi are stored in a json format. You can use any plain text editor (such as notepad) to edit a .json file. If the formatting is incorrect or if any value is set incorrectly the multi will display an error on the screen explaining the issue rather than booting to the menu. It's highly recommeded that you use an existing working menu_config.json file and modify when developing a configuration file for a new multi, or adjusting your preferences for an existing multi. this will help you understand the format and parameters.
+
+"games" are identified with a text string, I use the mame rom name for simplicity and consistency but any string of text can be used so long as it's used consistently through the config file. image file paths are always from the root of the device, and by default will use the "/image/filename.bmp" path and format.
+
+There are three sections to the menu_config.json file, the main configuration which describes how the menu functions, the "game_order" list which simply describe the order that the games will apepar in the menu, and the "gamedefs" list which describes each game, it's title, which image it uses, and it's hex value in dips or on a rotary selector.
+
+The main config has the following value and parameter pairs:
+* multi_name: [string] This is simply a string of text to help identify which multi the menu is for, it's not used by the multi at all and really just useful to human readers of the config file.
+* default_game: [string] this is the game that will start by default when the multi is powered on, it must be set to a value that matches a game identifier in the gamedefs section. if you do not have a preference it is recommended to set this to which ever game occupies position 0 (all dips off) as that will allow initial board bring up about 2 seconds faster.
+* retain_selection: [boolean] this is a true or false value, when true the default_game will be ignored and instead the last game selected when the multi was powered off will be selected by default on next power-on (currently this feature is not functioning)
+* idle_timeout: [decimal] this is the number in seconds that when scrolling through the menu without selecting a game that the selector will consider "idle" and return the display to showing the currently loaded game. default value of: 10
+* debounce_delay: [decimal] this is number in seconds that subsequent button presses will be ignored. necessary to prevent accidental double taps. default value of: 0.2
+* loading_image: [string] the file name and path to the .bmp file that will be used for the loading image when loading a new game. If the file specified does not exist plain text will be displayed instead. default value of: "/images/loading.bmp"
+* text_color: [string] the hex value describing the color of the text on the screen when text is displayed instead of an image. default value of "0xFFFFFF"
+* left_margin: [integer] the left margin in pixels when text is used on screen instead of an image. default value of: 10
+* top_margin: [integer] the top margin in pixels when text is used on screen instead of an image. default value of: 60
+
+The game_order section is simply a json array of all of the game identifiers and the order you wish to see them displayed in the menu. the game identifiers must match those specified in the "gamedefs" section. You may opt to exclude games here if you do not want them to appear on the menu, similarly you can include games in the game order multiple times if you wish for them to appaer multiple times on the menu rotation. The selector offers infinite menu rotation in either direction so the last game appears before the first game and the first game appears after the last game when scrolling.
+
+the gamedefs section is a nested object where gamedefs includes a game object for each game available on the selector. each game object is labeled with a game id. As mentioned above I recommend using mame rom names for the game id for simplicity and consistency, but anything can be used. the only rule is that each game object must have a unique name.
+
+each game object has 3 values:
+* title: [string] The display text for the game title to use if an image file is not available. Multiple games can have the same title, though it's not recommended as there would be now way to tell the entries apart when using the menu. This text can be as long as you like, it will auto-resize the text to fit. However long games will be harder to read.
+* image: [string] the file name and path to the image file associated with the game. I recommend naming your image files the same as the game id for simplicity and consistency. Multiple games can use the same image, though it's not recommended as there would be no way to tell the entries apart when using the menu. See the section above for details on how to make appropriate images for the selector.
+* dip_val: [string] this is the value in hex that identifies which position on a rotary selector, or which dip-switch configuration is associated with the particular game. So for instance for a 4 position dip-switch a value of "1" will be translated to a dip configuraiton of "0001" and a value of "C" will be translated to "1100". Multiple games can use the same dip postion. So you could for instance have a game appear twice with two different names or two different images but use the same dip value.
+
 
 # Adding Support for this Selector to your Multi as a Multi-Kit Developer
 (Details Coming Soon)
