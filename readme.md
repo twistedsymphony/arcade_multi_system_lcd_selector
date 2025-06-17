@@ -6,6 +6,7 @@
 
 This is a small remote selector that can be adapted and used on DIP-switch based arcade multi-systems. 
 Once the device is configured and installed, rather than selecting your game by setting dip switches, users can push the "Up" (D0) and "Down" (D2) buttons to navigate visually through the game list, then push "Select" (D1) to select the game. The selector will then hold the arcade board in reset and electrically configure the dip switches before releasing reset allowing the selected game to boot.
+![multi_lcd_selector](images/multi_lcd_selector.jpg "multi_lcd_selector")
 
 **What is a DIP-switch based arcade multi-system?**
 
@@ -116,13 +117,36 @@ each game object has 3 values:
 
 
 # Adding Support for this Selector to your Multi as a Multi-Kit Developer
-(Details Coming Soon)
+If you're designing and building a multi kit this will add exactly $0 to your production costs. For the bare minimum support you simply need to add a 10-pin header footprint to your PCB for the selector and a 1-pin header footprint for a reset wire. This adds no cost to production and maybe an hour (not even) of your time to add the header to your schematic and PCB layout. I've even provided pre-configured footprints to allow mounting of the selector directly to your PCB if you have the room for it. If you want stronger support still you can spend a few extra cents per PCB and solder in the headers to each of the footprints you added to make use of the LCD selector completely plug and play for your users.
 
-## Electrical Pinout for 10-Pin header and Reset Wire
-(Details Coming Soon)
+## Electrical Pinout for 10-Pin header
+The header on both the caertf-ms interface board as well as the header expected on the multi should use a 2.54mm pitch 10-pin male shrouded header with the alinment key in front of pin 5 as shown in the image below.
+
+![caertf-ms_pinout](images/CAERTF-MS_pinout.png "caertf-ms_pinout")
+
+* *Pin 1* is a Gound pin
+* *Pin 2* is a +5V supply from the multi PCB to power the Selector, this is passed through a diode to ensure powe flow only from the multi to the selector and not back feed into the multi from the selector.
+* *Pin 3* is the reset signal from the selector to the multi PCB, this should be routed to a header somewhere on the multi so that the user can install a reset wire to the original game PCB. This pin is driven to Ground when attempting to hold reset with Open Drain when not in reset. It is driven by a [Ti SN74LVC1G07DBVR open drain buffer](https://www.ti.com/lit/gpn/sn74lvc1g07)
+* *Pins 4-10* are the selector signal pins, these are driven either high (+5v) or low (GND) by a [Ti LC245A buffer chip](https://www.ti.com/lit/ds/symlink/sn74lvc245a.pdf) It is assumed that SEL1 represent the lowest address controlled by the selector additional SEL pins are utilized in order to cover the number of controlled addresses, for instance if your multi has 3 dips then you will use SEL1, SEL2, and SEL3 and leave SEL4-SEL7 disconnected.
 
 ## Footprints and mounting considerations
-(Details Coming Soon)
+When adding support for this selector on your multi you may opt to use a generic 2.54mm pitch 10-pin male shrouded header footprint on your multi PCB, however special footprints have been developed that can enable mounting of the selector directly to the PCB. There are 8 footprint files in this repo. uniquely identified by "1pos" "2pos" "3pos" and "4pos" to specifies the number of mounting positions that they accomidate. For instance 1pos allows only 1 position for the selector can be mounted while 2pos enables 2 positions offset 90 deg from each other giving your users more mounting options (provided your multi PCB has enough space to accomidate additional mounting options). Each position also has "co" and "nco" variants for "cut-outs" and "no cut-outs". Footprints with cut outs have edge cuts built into the footprints to allow the through-hole pins of the caerft-ms interface pcb to passthrough the multi-pcb so that the PCBs can be mounted directly together with screws without concern of the through-hole solder joints contacting the multi-pcb. the no-cut-outs variants are missing these features and would require either 1.6mm or taller spacers on each screw, or the use of a small 3D printed spacer (included in this repo) to mount the selector to the footprint without the through-hole parts making contact witht he multi-pcb. All footprints are designed to use a IDC cable of 38mm (1.5in) or longer which can be [purchased from Adafruit](https://www.adafruit.com/product/556) though any 10-pin (2x5 female to female) IDC cable should work. An example of a 4-position no cut out footprint with an interface board attached can be seen below.
+
+![interface_board_and_footprint](images/interface_board_and_footprint.jpg "interface_board_and_footprint")
+
+In addition to directly mounting a selector to the footprint a 3D printed "cradle" has also been created (available in this repo) that can accomodate a selector, this holds the selector at a 45 deg angle for easier viewing and allows the selector to be placed in the cradle for storage or easily removed but the user without any tools. An example of a cradle mount can be seen below.
+![multi_lcd_selector](images/multi_lcd_selector.jpg "multi_lcd_selector")
 
 ## Configuring the multi_config.json File
-(Details Coming Soon)
+The multi config has the following value and parameter pairs:
+* multi_name: [string] This is simply a string of text to help identify which multi the config file is for, it's not used by the multi at all and really just useful to human readers of the config file.
+* dip_bits: [integer] This is the number of dip-switch positions that the multi-kit utilizes
+* dip_on: [string] Should be set to either "1" or "0", This specifies wether a dip switch being in the "on" position is normal (on = 1, or +5V) or inverted (on = 0, or GND)
+* reset_open_drain: [boolean] this should be set to "true" or "false" and determines whether the Adafruit module itself provides and open drain for the rest signal. This should be set to "false" when using the caertf-ms interface pcb as the interface pcb itself has a buffer providing the open drain. it should only be set to true if using the Adafruit unit directly without any interface PCB or if using your own interface PCB that requires this setting adjusted. default vale: false
+* dip_lsb: [boolean] (not yet implimented) This determines the bit order of the dip switches, when "true" SEL1 is the least significant bit, when "false" SEL1 is the most significant bit, with the total bits determined by the "dip_bits" setting above. default vale: false
+
+## Reset wire recommendations
+(Additional Details coming soon)
+
+## Example Dip Based Multi-Kit Schematic
+(Additional Details coming soon)
