@@ -8,7 +8,7 @@ import terminalio
 from adafruit_display_text import label
 
 
-# function: change the currently dispalyed image
+# function: change the currently displayed image
 def display_bmp(filename, alt_text):
     global tile_grid
 
@@ -19,7 +19,7 @@ def display_bmp(filename, alt_text):
         tile_grid = displayio.TileGrid(bitmap, pixel_shader=bitmap.pixel_shader)
         main_group.append(tile_grid)
     except Exception as e:
-        screen_width = 240  # dispaly width in pixels
+        screen_width = 240  # display width in pixels
         char_width = 6  # character width in pixels (estimated)
         text_pixel_length = (len(alt_text) * char_width) + left_margin
         scale_factor = screen_width // text_pixel_length
