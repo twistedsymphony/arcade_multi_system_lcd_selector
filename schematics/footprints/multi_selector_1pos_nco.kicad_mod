@@ -17,7 +17,7 @@
 		)
 	)
 	(property "Value" "multi_selector_1pos_nco"
-		(at 1.77 14.29 0)
+		(at 1.016 16.764 0)
 		(layer "F.Fab")
 		(uuid "7197c53a-b7cb-4de9-b15a-0504f42f406f")
 		(effects
@@ -53,8 +53,28 @@
 	)
 	(attr through_hole)
 	(fp_line
-		(start -1.38 -1.38)
-		(end 0 -1.38)
+		(start -32.36 -27.9)
+		(end -14.5 -27.9)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "636920a1-80df-4ef3-bf38-9ff6e7aba347")
+	)
+	(fp_line
+		(start -32.36 22.9)
+		(end -14.5 22.9)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "ae39b9c3-bf0d-4bd0-8d81-f5f9d778a441")
+	)
+	(fp_line
+		(start -3.048 -5.08)
+		(end 5.588 -5.08)
 		(stroke
 			(width 0.12)
 			(type solid)
@@ -63,8 +83,8 @@
 		(uuid "6c95a65e-3334-4e26-ba17-4f4888fae947")
 	)
 	(fp_line
-		(start -1.38 0)
-		(end -1.38 -1.38)
+		(start -3.048 3.3528)
+		(end -3.048 -5.08)
 		(stroke
 			(width 0.12)
 			(type solid)
@@ -73,8 +93,8 @@
 		(uuid "852d8643-d85f-45a6-8094-b5cd540a14b4")
 	)
 	(fp_line
-		(start -1.38 1.27)
-		(end -1.38 11.54)
+		(start -3.048 6.7564)
+		(end -3.048 15.24)
 		(stroke
 			(width 0.12)
 			(type solid)
@@ -83,18 +103,8 @@
 		(uuid "4c700e90-3cdd-450c-8789-3477b4be1a15")
 	)
 	(fp_line
-		(start -1.38 1.27)
-		(end 1.27 1.27)
-		(stroke
-			(width 0.12)
-			(type solid)
-		)
-		(layer "F.SilkS")
-		(uuid "9af82277-dcac-4323-a869-4d9a70f52943")
-	)
-	(fp_line
-		(start -1.38 11.54)
-		(end 3.92 11.54)
+		(start -3.048 15.24)
+		(end 5.588 15.24)
 		(stroke
 			(width 0.12)
 			(type solid)
@@ -103,28 +113,8 @@
 		(uuid "04e17103-23e9-425b-a7a5-9b04de9380c9")
 	)
 	(fp_line
-		(start 1.27 -1.38)
-		(end 3.92 -1.38)
-		(stroke
-			(width 0.12)
-			(type solid)
-		)
-		(layer "F.SilkS")
-		(uuid "34da6f22-b4b2-47e4-b6e7-a12b687ca5d8")
-	)
-	(fp_line
-		(start 1.27 1.27)
-		(end 1.27 -1.38)
-		(stroke
-			(width 0.12)
-			(type solid)
-		)
-		(layer "F.SilkS")
-		(uuid "23b50967-f892-4355-9d2d-bd228debca8f")
-	)
-	(fp_line
-		(start 3.92 -1.38)
-		(end 3.92 11.54)
+		(start 5.588 -5.08)
+		(end 5.588 15.24)
 		(stroke
 			(width 0.12)
 			(type solid)
@@ -175,6 +165,18 @@
 		)
 		(layer "F.SilkS")
 		(uuid "6b798034-7664-42eb-8303-4f79cc28fab9")
+	)
+	(fp_poly
+		(pts
+			(xy -3.556 0) (xy -4.572 -0.508) (xy -4.572 0.508)
+		)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "bb70dde5-532c-4d40-847e-577ad7774985")
 	)
 	(fp_circle
 		(center -32.36 -25.4)
@@ -482,15 +484,15 @@
 		(uuid "8cbd856a-a42e-40b8-a13e-c820ee612502")
 	)
 	(embedded_fonts no)
-	(model "${KICAD9_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_2x05_P2.54mm_Vertical.wrl"
+	(model "${KICAD_PERSONAL}/connectors/10-2x5-pin-idc-header-shrouded/AB2_HDR_M05-2V-S-3M.wrl"
 		(offset
-			(xyz 0 0 0)
+			(xyz 1.25 -5 0.5)
 		)
 		(scale
-			(xyz 1 1 1)
+			(xyz 0.3937 0.3937 0.3937)
 		)
 		(rotate
-			(xyz 0 0 0)
+			(xyz -0 -0 90)
 		)
 	)
 )
