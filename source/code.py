@@ -8,7 +8,7 @@ import terminalio
 from adafruit_display_text import label
 
 
-# function: change the currently displayed image
+# function: change the currently dispalyed image
 def display_bmp(filename, alt_text):
     global tile_grid
 
@@ -19,7 +19,7 @@ def display_bmp(filename, alt_text):
         tile_grid = displayio.TileGrid(bitmap, pixel_shader=bitmap.pixel_shader)
         main_group.append(tile_grid)
     except Exception as e:
-        screen_width = 240  # display width in pixels
+        screen_width = 240  # dispaly width in pixels
         char_width = 6  # character width in pixels (estimated)
         text_pixel_length = (len(alt_text) * char_width) + left_margin
         scale_factor = screen_width // text_pixel_length
@@ -51,7 +51,14 @@ def select_game(game_index):
 # converts the hex dip val in the json to binary string
 def dip_hex_to_bin(dip_val_hex):
     dip_val_int = int(dip_val_hex, 16)
+    
+    #dip_val_int &= (1 << dip_bits) - 1 # keep only the lowest dip_bits bits
+    
     dip_val_bin = f'{dip_val_int:0{dip_bits}b}'
+    
+    if dip_bits_reversed:
+      dip_val_bin = ''.join(reversed(dip_val_bin))
+      
     return dip_val_bin
 
 
@@ -99,6 +106,7 @@ try:
         multi_config = json.load(f)
     dip_on = multi_config["dip_on"]  # determines if a dip_on position is high (1) or low (0)
     dip_bits = multi_config["dip_bits"]  # determines the number of dip swiches that the multi supports
+    dip_bits_reversed = multi_config["dip_bits_reversed"]  # when true dips start with least significant bit
     reset_time = multi_config["reset_time"]  # How long to hold in reset when loading new game
     if multi_config["reset_open_drain"]:
         #reconfigure reset pin
