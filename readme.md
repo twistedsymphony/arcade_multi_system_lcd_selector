@@ -143,7 +143,7 @@ The multi config has the following value and parameter pairs:
 * dip_bits: [integer] This is the number of dip-switch positions that the multi-kit utilizes
 * dip_on: [string] Should be set to either "1" or "0", This specifies wether a dip switch being in the "on" position is normal (on = 1, or +5V) or inverted (on = 0, or GND)
 * reset_open_drain: [boolean] this should be set to "true" or "false" and determines whether the Adafruit module itself provides and open drain for the rest signal. This should be set to "false" when using the caertf-ms interface pcb as the interface pcb itself has a buffer providing the open drain. it should only be set to true if using the Adafruit unit directly without any interface PCB or if using your own interface PCB that requires this setting adjusted. default vale: false
-* dip_lsb: [boolean] (not yet implimented) This determines the bit order of the dip switches, when "true" SEL1 is the least significant bit, when "false" SEL1 is the most significant bit, with the total bits determined by the "dip_bits" setting above. default vale: false
+* dip_bits_reversed: [boolean] This determines the bit order of the dip switches, when "true" SEL1 is the least significant bit, when "false" SEL1 is the most significant bit, with the total bits determined by the "dip_bits" setting above. default vale: false
 
 ## Reset wire recommendations
 (Additional Details coming soon)
