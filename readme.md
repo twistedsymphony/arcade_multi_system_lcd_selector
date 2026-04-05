@@ -119,6 +119,8 @@ each game object has 3 values:
 # Adding Support for this Selector to your Multi as a Multi-Kit Developer
 If you're designing and building a multi kit this will add exactly $0 to your production costs. For the bare minimum support you simply need to add a 10-pin header footprint to your PCB for the selector and a 1-pin header footprint for a reset wire. This adds no cost to production and maybe an hour (not even) of your time to add the header to your schematic and PCB layout. I've even provided pre-configured footprints to allow mounting of the selector directly to your PCB if you have the room for it. If you want stronger support still you can spend a few extra cents per PCB and solder in the headers to each of the footprints you added to make use of the LCD selector completely plug and play for your users.
 
+A version of the CAERTF-MS interface board has been created for Apocalypse Multi Kits and released to it's own repo: https://github.com/twistedsymphony/apoc_arcade_multi_system_lcd_selector
+
 ## Electrical Pinout for 10-Pin header
 The header on both the caertf-ms interface board as well as the header expected on the multi should use a 2.54mm pitch 10-pin male shrouded header with the alinment key in front of pin 5 as shown in the image below.
 
