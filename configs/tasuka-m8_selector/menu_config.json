@@ -11,13 +11,13 @@
 
   "game_order": [
     "asuka",
-    "earthjkr",
-    "galmedes",
-    "eto",
     "asukaj",
+    "earthjkr",
     "earthjkrp",
+    "galmedes",
     "mofflott",
-    'cadash"
+    "eto",
+    "cadash"
   ],
 
   "gamedefs": {
@@ -29,7 +29,7 @@
     "earthjkr": {
       "title":"U.N. Defense Force: Earth Joker",
       "image":"/images/earthjkr.bmp",
-      "dip_val":"1"
+      "dip_val":"4"
     },
     "galmedes": {
       "title":"Galmedes",
@@ -39,12 +39,12 @@
     "eto": {
       "title":"Kokontouzai Eto Monogatari",
       "image":"/images/eto.bmp",
-      "dip_val":"3"
+      "dip_val":"6"
     },
     "asukaj": {
       "title":"Asuka & Asuka (Japan)",
       "image":"/images/asukaj.bmp",
-      "dip_val":"4"
+      "dip_val":"1"
     },
     "earthjkrp": {
       "title":"U.N. Defense Force: Earth Joker (Prototype)",
@@ -54,7 +54,7 @@
     "mofflott": {
       "title":"Maze of Flott",
       "image":"/images/mofflott.bmp",
-      "dip_val":"6"
+      "dip_val":"3"
     },
     "cadash": {
       "title":"Cadash",

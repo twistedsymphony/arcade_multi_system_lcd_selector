@@ -1,6 +1,6 @@
 {
   "multi_name":"MVG460-M8",
-  "default_game":"skyalert",
+  "default_game":"karatourj",
   "retain_selection":true,
   "idle_timeout":10,
   "debounce_delay":0.2,
@@ -11,29 +11,35 @@
 
   "game_order": [
     "karatour",
-    "skyalert",
+    "karatourj",
     "ladykill",
-    "poitto",
-    "pangpoms",
+    "lastfortg",
     "lastfort",
-    "lastfortg"
+    "pangpoms",
+    "poitto",
+    "skyalert"
   ],
 
   "gamedefs": {
     "pangpoms": {
-      "title":"PangPom's",
+      "title":"PangPom's (Metro)",
       "image":"/images/pangpoms.bmp",
       "dip_val":"0"
     },
-    "lastfort": {
-      "title":"Last Fortress - Toride (JP)",
-      "image":"/images/lastfort.bmp",
+    "karatourj": {
+      "title":"Karate Tournament (Japan)",
+      "image":"/images/karatourj.bmp",
       "dip_val":"1"
     },
-    "lastfortg": {
-      "title":"Last Fortress - Toride (DE)",
-      "image":"/images/lastfortg.bmp",
+    "lastfort": {
+      "title":"Last Fortress - Toride (Japan)",
+      "image":"/images/lastfort.bmp",
       "dip_val":"2"
+    },
+    "lastfortg": {
+      "title":"Last Fortress - Mah-Jong (Germany)",
+      "image":"/images/lastfortg.bmp",
+      "dip_val":"3"
     },
     "skyalert": {
       "title":"Sky Alert",
@@ -41,7 +47,7 @@
       "dip_val":"4"
     },
     "poitto": {
-      "title":"Poitto",
+      "title":"Poitto (Rev D)",
       "image":"/images/poitto.bmp",
       "dip_val":"5"
     },
@@ -51,8 +57,8 @@
       "dip_val":"6"
     },
     "karatour": {
-      "title":"Karate Tournament",
-      "image":"/images/karatour.bmp",
+      "title":"Karate Tournament (World)",
+      "image":"/images/karatourw.bmp",
       "dip_val":"7"
     }
   }
